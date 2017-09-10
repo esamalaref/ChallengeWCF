@@ -46,20 +46,6 @@ namespace FirstWCFWebService
             }
             else if (error is SerializationException)
             {
-                //message = Message.CreateMessage(version, "", "An non-fault exception is occured.", new DataContractJsonSerializer(typeof(string)));
-                //var wbf = new WebBodyFormatMessageProperty(WebContentFormat.Json);
-                //message.Properties.Add(WebBodyFormatMessageProperty.Name, wbf);
-
-                //// return custom error code.
-                //var rmp = new HttpResponseMessageProperty();
-
-                //rmp.StatusCode = System.Net.HttpStatusCode.InternalServerError;
-
-                //// put appropraite description here..
-                //rmp.StatusDescription = "Uknown exception...";
-
-                //message.Properties.Add(HttpResponseMessageProperty.Name, rmp);
-
                 fault.Error= error.Message;
                 fault.Error = "Could not decode request: JSON parsing failed";
                 toJson(fault, ref message);

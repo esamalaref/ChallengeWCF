@@ -8,16 +8,15 @@ using System.Text;
 
 namespace FirstWCFWebService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IFirstService" in both code and config file together.
-    [ServiceContract]
     
+    [ServiceContract]    
     public interface IFirstService
     {
         [OperationContract]        
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json,
                         UriTemplate = "ProcessFeed")]
-        ResultSet ProcessFeed(Feed feed);// int skip, int take, int totalRecords);
+        ResultSet ProcessFeed(Feed feed);
     }
     
     [DataContract]
